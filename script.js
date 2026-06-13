@@ -27,3 +27,14 @@ alert(
 }
 
 }
+function checkIn(){
+
+alert("✅ Attendance Marked Successfully");
+
+}
+
+function checkOut(){
+
+alert("❌ Checked Out Successfully");
+
+}
