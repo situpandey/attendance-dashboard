@@ -1,22 +1,29 @@
-function updateDateTime(){
+function login(){
 
-const now = new Date();
+let empid =
+document.getElementById("empid").value;
 
-const dateOptions = {
-weekday:'long',
-year:'numeric',
-month:'long',
-day:'numeric'
-};
+let password =
+document.getElementById("password").value;
 
-document.getElementById("date").innerHTML =
-now.toLocaleDateString("en-US",dateOptions);
 
-document.getElementById("time").innerHTML =
-now.toLocaleTimeString();
+if(
+empid==="TM-001"
+&&
+password==="12345"
+){
+
+window.location.href=
+"dashboard.html";
 
 }
 
-updateDateTime();
+else{
 
-setInterval(updateDateTime,1000);
+alert(
+"Invalid Employee ID or Password"
+);
+
+}
+
+}
