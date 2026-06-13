@@ -49,6 +49,9 @@ function checkIn(){
 
 alert("✅ Attendance Marked Successfully");
 
+window.location.href=
+"attendance-summary.html";
+
 }
 
 
