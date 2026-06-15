@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,38 +42,36 @@ Mark Attendance
 
 </h1>
 
-<label>
-
-Employee ID
-
-</label>
+<label>Employee ID</label>
 
 <input
 id="empid"
 class="input"
 placeholder="TM-001">
->
 
-<label>
-
-Password
-
-</label>
+<label>Password</label>
 
 <input
 id="password"
 type="password"
 class="input"
 placeholder="Enter Password">
->
 
 <button class="btn green" onclick="login()">
+
 Login
+
 </button>
 
 </div>
 
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase.js"></script>
 
 <script src="script.js"></script>
 
