@@ -1,62 +1,98 @@
-function updateDateTime() {
 
-const now = new Date();
+function updateClock(){
 
-const dateOptions = {
-weekday: 'long',
-year: 'numeric',
-month: 'long',
-day: 'numeric'
-};
+const now=new Date();
 
-document.getElementById("date").innerHTML =
-now.toLocaleDateString("en-US", dateOptions);
+document.getElementById("date").innerHTML=
 
-document.getElementById("time").innerHTML =
+now.toDateString();
+
+document.getElementById("time").innerHTML=
+
 now.toLocaleTimeString();
 
 }
 
-updateDateTime();
+setInterval(updateClock,1000);
 
-setInterval(updateDateTime, 1000);
+updateClock();
 
 
-function login(){
 
-let empid =
-document.getElementById("empid").value;
+async function login(){
 
-let password =
-document.getElementById("password").value;
+let empid=
 
-if(empid==="TM-001" && password==="12345"){
+document.getElementById("empid").value.trim();
 
-window.location.href="dashboard.html";
+let password=
+
+document.getElementById("password").value.trim();
+
+if(empid=="" || password==""){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+
+try{
+
+const doc=
+
+await db.collection("employees")
+
+.doc(empid)
+
+.get();
+
+
+if(doc.exists){
+
+let data=doc.data();
+
+
+if(data.password===password){
+
+localStorage.setItem(
+
+"user",
+
+JSON.stringify(data)
+
+);
+
+
+window.location.href=
+
+"dashboard.html";
 
 }
 
 else{
 
-alert("Invalid Employee ID or Password");
+alert("Wrong Password");
 
 }
 
 }
 
+else{
 
-function checkIn(){
-
-alert("✅ Attendance Marked Successfully");
-
-window.location.href=
-"attendance-summary.html";
+alert("Employee Not Found");
 
 }
 
+}
 
-function checkOut(){
+catch(error){
 
-alert("❌ Checked Out Successfully");
+console.log(error);
+
+alert(error.message);
+
+}
 
 }
